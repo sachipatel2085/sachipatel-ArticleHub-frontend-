@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+.prose {
+  line-height: 1.75;
+}
+
+.prose p {
+  margin: 0.9rem 0;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  color: #f8fafc;
+}
+
+.prose p {
+  line-height: 1.75;
+}
+
+.prose ul {
+  margin-left: 1.2rem;
+}
+
+.prose code {
+  background: #020617;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.prose pre {
+  background: #020617;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
