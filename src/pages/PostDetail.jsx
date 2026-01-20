@@ -9,12 +9,12 @@ const PostDetail = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const fetched = useRef(false);
 
   useEffect(() => {
-    if (fetched.current) return;
-    fetched.current = true;
+    window.scrollTo(0, 0);
+  }, [slug])
 
+  useEffect(() => {
     const fetchPost = async () => {
       try {
         const res = await api.get(`/posts/${slug}`);
