@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 
 const AdminSidebar = ({ open, setOpen }) => {
+  const { user } = useAuth();
+
   const linkClass = ({ isActive }) =>
     `block px-4 py-2 rounded-md text-sm transition ${
       isActive
@@ -13,7 +16,7 @@ const AdminSidebar = ({ open, setOpen }) => {
     <aside
       className={`
         fixed lg:static top-0 left-0 z-50
-        h-full w-64 bg-slate-900 border-r border-slate-700
+        min-h-screen w-64 bg-slate-900 border-r border-slate-700
         overflow-y-auto
         transform transition-transform duration-300
         ${open ? "translate-x-0" : "-translate-x-full"}
@@ -23,8 +26,11 @@ const AdminSidebar = ({ open, setOpen }) => {
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-5 border-b border-slate-700">
         <h1 className="text-xl font-bold text-orange-400">
-          Admin
+          Admin Panel
         </h1>
+        <p className="text-xs text-gray-500 mt-1">
+          {user?.name}
+        </p>
 
         {/* Close button (mobile only) */}
         <button
@@ -54,15 +60,6 @@ const AdminSidebar = ({ open, setOpen }) => {
         </NavLink>
       </nav>
 
-      {/* Footer */}
-      <div className="px-4 py-4 border-t border-slate-700">
-        <NavLink
-          to="/"
-          className="text-sm text-gray-400 hover:text-orange-400"
-        >
-          ← Exit Admin
-        </NavLink>
-      </div>
     </aside>
   );
 };

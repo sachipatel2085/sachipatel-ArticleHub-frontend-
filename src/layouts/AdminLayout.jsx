@@ -19,7 +19,7 @@ const AdminLayout = ({ children }) => {
       <AdminSidebar open={open} setOpen={setOpen} />
 
       {/* Main content wrapper */}
-      <div className="flex-1 flex flex-col lg:ml-64 min-w-0">
+      <div className="flex-1 flex flex-col  min-w-0">
 
         {/* Mobile top bar */}
         <div className="lg:hidden flex items-center gap-3 px-4 py-3 border-b border-slate-700">
