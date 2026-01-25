@@ -51,7 +51,7 @@ const AdminPosts = () => {
       </div>
 
       {/* Table wrapper (THIS is where overflow belongs) */}
-      <div className="relative w-full overflow-x-auto rounded-lg border border-slate-700">
+      <div className="relative w-full overflow-x-auto  border border-slate-700">
         <table className="min-w-[700px] w-full text-sm">
           <thead className="bg-slate-800 text-gray-300">
             <tr>
