@@ -32,7 +32,7 @@ const AdminPosts = () => {
       : posts.filter(p => p.status === filter);
 
   return (
-    <div className="min-h-screen bg-slate-900 px-6 py-10">
+    <div className="w-full max-w-full">
       <h1 className="text-2xl font-bold text-white mb-6">
         Post Moderation
       </h1>
@@ -50,26 +50,30 @@ const AdminPosts = () => {
         </select>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full border border-slate-700 rounded-lg">
-          <thead className="bg-slate-800 text-gray-300 text-sm">
+      {/* Table wrapper (THIS is where overflow belongs) */}
+      <div className="relative w-full overflow-x-auto rounded-lg border border-slate-700">
+        <table className="min-w-[700px] w-full text-sm">
+          <thead className="bg-slate-800 text-gray-300">
             <tr>
               <th className="p-3 text-left">Title</th>
               <th className="p-3 text-left">Author</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Views</th>
-              <th className="p-3">Actions</th>
+              <th className="p-3 text-center">Status</th>
+              <th className="p-3 text-center">Views</th>
+              <th className="p-3 text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             {filteredPosts.map(post => (
               <tr
                 key={post._id}
-                className="border-t border-slate-700 text-sm text-gray-300"
+                className="border-t border-slate-700 text-gray-300"
               >
-                <td className="p-3">{post.title}</td>
-                <td className="p-3">{post.author?.name}</td>
+                <td className="p-3 whitespace-nowrap">
+                  {post.title}
+                </td>
+                <td className="p-3 whitespace-nowrap">
+                  {post.author?.name}
+                </td>
                 <td className="p-3 text-center capitalize">
                   {post.status}
                 </td>
@@ -104,13 +108,13 @@ const AdminPosts = () => {
             ))}
           </tbody>
         </table>
-
-        {filteredPosts.length === 0 && (
-          <p className="text-gray-400 text-center py-10">
-            No posts found
-          </p>
-        )}
       </div>
+
+      {filteredPosts.length === 0 && (
+        <p className="text-gray-400 text-center py-10">
+          No posts found
+        </p>
+      )}
     </div>
   );
 };
