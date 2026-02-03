@@ -22,6 +22,9 @@ import AdminRoute from "./routes/AdminRoute";
 import AdminUsers from "./pages/admin/AdminUsers.jsx";
 import AdminReports from "./pages/admin/AdminReports.jsx";
 import AdminAppeals from "./pages/admin/adminAppeal.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 function App() {
 
   return (
@@ -100,6 +103,9 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer/>
         </BrowserRouter>
